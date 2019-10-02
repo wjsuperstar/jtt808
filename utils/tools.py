@@ -81,7 +81,10 @@ def to_dword(val):
         temp_hex.append(hex(item))
     temp_str = ''
     for item in temp_hex:
-        temp_str += str(item).replace('0x', '')
+        new_str = str(item).replace('0x', '')
+        if len(new_str) < 2:
+            new_str = '0' + new_str
+        temp_str += new_str
     result = int(temp_str, 16)
     return result
 

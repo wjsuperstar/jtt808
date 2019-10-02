@@ -47,7 +47,7 @@ class EchoServer(asyncore.dispatcher):
             sock, addr = pair
             info_tips = 'Incoming connection from ' + repr(addr)
             info(info_tips)
-            handler = EchoHandler(sock)
+            self.handler = EchoHandler(sock)
             self.current = handler.data_len
             self.total_recv += self.current
             self.counter += 1
